@@ -1,10 +1,12 @@
 import React from "react";
 import { UserButton } from "@clerk/clerk-react";
+import Header from "@/components/custom/header";
 
 const Home = () => {
   return (
     <div>
-      <UserButton />
+      <Header />
+      Landin screen
     </div>
   );
 };

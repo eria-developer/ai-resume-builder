@@ -4,7 +4,7 @@ import App from "./App.jsx";
 import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import SignInPage from "./auth/sign-in/index.jsx";
-import { Home } from "lucide-react";
+import Home from "./home/index.jsx";
 import Dashboard from "./dashboard/index.jsx";
 import { ClerkProvider } from "@clerk/clerk-react";
 
@@ -19,14 +19,14 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
-        path: "/",
-        element: <Home />,
-      },
-      {
         path: "/dashboard",
         element: <Dashboard />,
       },
     ],
+  },
+  {
+    path: "/",
+    element: <Home />,
   },
 
   {
