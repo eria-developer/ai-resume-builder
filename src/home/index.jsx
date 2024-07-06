@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import { UserButton } from "@clerk/clerk-react";
 
 const Home = () => {
   return (
-    <div>Home</div>
-  )
-}
+    <div>
+      <UserButton />
+    </div>
+  );
+};
 
-export default Home
+export default Home;
