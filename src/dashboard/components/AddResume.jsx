@@ -13,12 +13,15 @@ import {
 import { Button } from "@/components/ui/button";
 import { useUser } from "@clerk/clerk-react";
 import GlobalApi from "./../../../service/GlobalApi";
+import { data } from "autoprefixer";
+import { useNavigate } from "react-router-dom";
 
 const AddResume = () => {
   const [openDialog, setOpenDialog] = useState(false);
   const [resumeTitle, setResumeTitle] = useState("");
   const [loading, setLoading] = useState(false);
   const user = useUser();
+  const navigate = useNavigate();
 
   const onCreateResume = async () => {
     setLoading(true);
@@ -27,16 +30,17 @@ const AddResume = () => {
       data: {
         title: resumeTitle,
         resumeId: uuid,
-        userEmail: user?.primaryEmailAddress?.emailAddress,
-        userName: user?.fullName,
+        userEmail: user?.user?.primaryEmailAddress?.emailAddress,
+        userName: user?.user?.fullName,
       },
     };
+    console.log(data);
 
     try {
       const resp = await GlobalApi.createNewResume(data);
       console.log(resp);
       setLoading(false);
-      setOpenDialog(false);
+      navigate(`resume/${uuid}/edit`);
     } catch (error) {
       console.error(error);
       setLoading(false);

@@ -10,9 +10,14 @@ const axiosClient = axios.create({
 });
 
 const createNewResume = (data) => {
-  return axiosClient.post("user-resumes", data);  // Make sure to return the promise
+  return axiosClient.post("user-resumes", data); // Make sure to return the promise
+};
+
+const getUserResumes = (userEmail) => {
+  return axiosClient.get("user-resumes?filters[userEmail][$eq]=" + userEmail);
 };
 
 export default {
   createNewResume,
+  getUserResumes,
 };
