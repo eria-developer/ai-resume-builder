@@ -38,7 +38,7 @@ const Dashboard = () => {
       <h2 className="font-bold text-2xl">My Resume</h2>
       <p>Start creating AI-based resumes for your new job</p>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
         <AddResume />
         {resumeList &&
           resumeList.map((resume, index) => (

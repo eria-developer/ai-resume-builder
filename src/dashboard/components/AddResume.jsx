@@ -40,7 +40,7 @@ const AddResume = () => {
       const resp = await GlobalApi.createNewResume(data);
       console.log(resp.data.data.attributes.resumeId);
       setLoading(false);
-      navigate(`resume/${resp.data.data.attributes.resumeId}/edit`);
+      navigate(`resume/${resp.data.data.id}/edit`);
     } catch (error) {
       console.error(error);
       setLoading(false);
